@@ -1,0 +1,5 @@
+redis:
+  image: redis:3.2.10
+  command: redis-server --requirepass redis
+  container_name: redis
+  ports: ["6379"]

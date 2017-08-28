@@ -1,0 +1,4 @@
+php:
+  image: php:7.0.22-apache
+  volumes:
+    - /home/tiago/web/:/var/www/html/
