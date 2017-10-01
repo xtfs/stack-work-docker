@@ -1,6 +1,19 @@
-php:
-  image: php:7.0.22-apache
+web:
+  build: ./
+  ports:
+  - "8090:80"
   volumes:
-    - /home/tiago/web/:/var/www/html/
+  - /home/tiago/web/:/var/www/html/
+  container_name: php7
+  links:
+  - mysql
+
+mysql:
+  image: mysql:5.7
   environment:
-    XDEBUG_CONFIG: remote_host=192.168.1.36
+    MYSQL_ROOT_PASSWORD: root
+  volumes:
+    - ./dumps/:/var/lib/opt/dumps
+  container_name: mysql
+
+  
